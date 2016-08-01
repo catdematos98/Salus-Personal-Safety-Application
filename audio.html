@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Audio Recording</title>
+			<!--Fonts-->
+				<!--Raleway is for all headers/subheaders-->
+			<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+				<!--Merriweather is for all paragraphs/body text-->
+			<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+
+			<!--Mobile Viewport-->
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<!--stylesheets-->
+			<link rel="stylesheet" href="normalize.css">
+			<link rel="stylesheet" href="main.css">
+			<link rel="stylesheet" href="about.css">
+
+			<!--icon-->
+			<link rel="shortcut icon" href="icon1.png">
+
+			<!--Javascript & JQuery-->
+			<script src="helper.js"></script>
+			<script src="main.js"></script>
+			<script src="plugins.js"></script>
+			<script src="jquery-2.1.0.js"></script>
+			<script src="jquery-2.1.0.min.js"></script>
+			<script src="modernizr-2.7.1.min.js"></script>
+			<script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"> </script>
+
+    <style>
+	  h1
+      {
+		font-size: 150%;
+		font-family: 'Raleway', sans-serif;
+		text-align: center;
+      }
+
+	  bodyText{
+		font-size: 80%;
+		font-family: 'Raleway', sans-serif;
+		text-align: center;
+	  }
+
+      .buttons-wrapper
+      {
+        text-align: center;
+      }
+
+      .hidden
+      {
+        display: none;
+      }
+
+
+      .button-demo
+      {
+        padding: 1.50em;
+        display: inline-block;
+        margin: 2em auto;
+      }
+
+    </style>
+  </head>
+
+  <body>
+  <!--Menu-->
+  			<ul class="collapsibleList" id="menu">
+  						<li>
+  							<label for="Menu"><img id="menupic" src="menu.png"/></label>
+  							<input type="checkbox" id="Menu" />
+  								<p>
+  									<a href="functions.html" id="nav">Home</a>
+  									</br>
+  									<a href="account.html" id="nav">Account</a>
+  									</br>
+  									<a href="contacts.html" id="nav">Emergency Contacts</a>
+  									</br>
+  									<a href="help.html" id="nav">Help</a>
+  									</br>
+  									<a href="about.html" id="nav">About</a>
+  									</br>
+  									<a href="premium.html" id="nav">Premium</a>
+  								</p>
+  						</li>
+					</ul>
+
+
+  <fieldset align="center" style="text-align:-moz-center">
+  <h1 align="center" style="text-align:-moz-center"> <img src="logo.png" id="logo" width="300px" height="165px"/> </h1>
+    <h1 align="center" style="text-align:-moz-center">Audio Recording</h1>
+	<br>
+	<p align="center" style="text-align:-moz-center">
+		For how long do you wish to record? <em> in minutes </em>
+	</p>
+	</br>
+	</br>
+	<div align="center" style="text-align:-moz-center">
+		<img src="5.png" width ="80" height="80" onclick="fiveMinutes()" id="min">
+		<img src="10.png" width ="80" height="80" onclick="tenMinutes()" id="min">
+		<img src="15.png" width ="80" height="80" onclick="fifteenMinutes()" id="min">
+	</div>
+    <video id="video" autoplay="autoplay" controls="true" align="center" style="text-align:-moz-center"></video>
+		<div class="buttons-wrapper" align="center" style="text-align:-moz-center">
+			<button id="button-play-gum" class="button-demo" href="#" onclick = "startRecording()" align="center" style="text-align:-moz-center">Start</button>
+		</div>
+	</fieldset>
+
+    <span id="gum-unsupported" class="hidden" align="center" style="text-align:-moz-center">API not supported</span>
+    <span id="gum-partially-supported" class="hidden" align="center" style="text-align:-moz-center">API partially supported (video only)</span>
+    </body>
+
+	<script>
+	var time;
+	var duration;
+
+	function fiveMinutes(){
+		time =300000;
+		console.log(time);
+		return time;
+	}
+
+	function tenMinutes(){
+		time =600000;
+		console.log(time);
+		return time;
+	}
+
+	function fifteenMinutes(){
+		time =900000;
+		console.log(time);
+		return time;
+	}
+
+	var mediaConstraints = {
+		audio: true
+	};
+
+	var mediaRecorder;
+
+	function startRecording(){
+		duration = time;
+		console.log(duration);
+		navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+	}
+
+	function onMediaSuccess(stream) {
+		mediaRecorder = new MediaStreamRecorder(stream);
+		mediaRecorder.mimeType = 'audio/ogg';
+		mediaRecorder.audioChannels = 1;
+		mediaRecorder.ondataavailable = function (blob) {
+			// POST/PUT "Blob" using FormData/XHR2
+			var blobURL = URL.createObjectURL(blob);
+			    /*<a href="mailto:catdematos98@gmail.com?subject=Emergency%20Audio%20Recording&body=blobURL">Email Me</a>*/
+			// document.write('<a href=mailto:catdematos9@gmail.com?body=' + blobURL + '>' + blobURL + '</a>');
+			document.write('<a href="' + blobURL + '">' + blobURL + '</a>');
+		};
+		mediaRecorder.start(duration);
+		//99999999999999999
+	}
+
+
+	function onMediaError(e) {
+		console.error('media error', e);
+	}
+
+    </script>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Alexa's page</title>
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script>
+		function changePicture(){
+			alert($('#options').val());
+			$("#picHolder").attr('src', $('#options').val() + '.png');
+		}
+	</script>
+</head>
+<body>
+<style>
+		div {
+    background-color: #7FFFD4;
+    width: device-width;
+    padding: 25px;
+    border: 25px lightgrey;
+    margin: 25px;
+}
+</style>
+<!-- Start of first page -->
+<div data-role="page" id="foo">
+<body bgcolor="#FFA07A">
+<a href ="http://girlswhocode.com/"> <font size="5" color="pink">Go to Girls Who Code Website </font></a>
+
+	<div data-role="header">
+		<h1><font size="10" color="Purple"> All About Alexa </font></h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<img id = "picHolder" src = "gwc.png"></img>
+<div>
+		<p>
+			<center>
+			<li> <font size ="7" color="purple">16 years old </font> </li>
+			<li> <font size="7" color="blue">Girls Who Code</font></li>
+			<li><font size="7" color="purple">Swimming and Tennis</font></li>
+			<li> <font size="7" color="blue">Local Feminist </font></li>
+			<li> <font size="7" color="purple">Concert Goer</font></li>
+			</center>
+			</p>
+		</div>
+		<p>View internal page called <a href="#Alexa's Projects">Alexa's Projects</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="Alexa's Projects">
+
+	<div data-role="header">
+		<h1>Alexa's Projects</h1>
+		
+		
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<p><font Click below to change pic on main page!!!</p>
+		<p><a href="#foo">Back to foo</a></p>
+		<label for="select-choice-a" class="select">Custom select menu:</label>
+		<select name="select-choice-a" id="options" data-native-menu="false">
+			<option>Custom menu example</option>
+			<option value="gwc">code</option>
+			<option value="pool1"></option>
+			<input type="button" value="Submit" data-theme="b" onclick="changePicture()">
+		</select>
+		
+		
+	</div><!-- /content -->
+	<a href="file:///C:/Users/GirlsWhoCode/Downloads/fish%20tank%202.html">
+	<img src ="http://s7.postimg.org/mmb9v52iy/Image_4.jpg"/>
+</a>
+<p> attempted fish tank </p>
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+</body>
+</html>

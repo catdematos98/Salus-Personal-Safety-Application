@@ -1,0 +1,94 @@
+<! DOCTYPE HTML>
+<html class="no-js">
+	<title> Salus </title>
+	<head>
+		<!--Fonts-->
+			<!--Raleway is for all headers/subheaders-->
+		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+			<!--Merriweather is for all paragraphs/body text-->
+		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+		<!--Mobile Viewport-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--stylesheets-->
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="about.css">
+		<!--icon-->
+		<link rel="shortcut icon" href="icon1.png">
+		<!--Javascript & JQuery-->
+		<script src="helper.js"></script>
+		<script src="main.js"></script>
+		<script src="plugins.js"></script>
+		<script src="jquery-2.1.0.js"></script>
+		<script src="jquery-2.1.0.min.js"></script>
+		<script src="modernizr-2.7.1.min.js"></script>
+		<!-- Navigation -->
+
+
+	</head>
+		<script>
+    	</script>
+    	<!--Menu-->
+
+			<body>
+
+			<!--Menu-->
+
+
+			<ul class="collapsibleList" id="menu">
+						<li>
+							<label for="Menu"><img id="menupic" src="menu.png"/></label>
+							<input type="checkbox" id="Menu" />
+								<p>
+									<a href="functions.html" id="nav">Home</a>
+									</br>
+									<a href="account.html" id="nav">Account</a>
+									</br>
+									<a href="contacts.html" id="nav">Emergency Contacts</a>
+									</br>
+									<a href="help.html" id="nav">Help</a>
+									</br>
+									<a href="about.html" id="nav">About</a>
+									</br>
+									<a href="premium.html" id="nav">Premium</a>
+								</p>
+						</li>
+			</ul>
+	<style>
+		#siren {
+			margin-left:auto;
+			margin-right:auto;
+			text-align: -moz-center;
+			align: center;
+		}
+		#sirenstop {
+					margin-left:10px;
+					margin-right:auto;
+					text-align: -moz-center;
+					align: center;
+		}
+		h3 {
+			font-size: 300%;
+			color: #FFFFFF;
+		}
+		body{
+			background-repeat: no-repeat;
+			background-size:200%;
+		}
+	</style>
+	<body>
+		<fieldset>
+		<h1 align="center"> <img src="logo.png" id="logo" width="300px" height="165px"/> </h1>
+		<h3 style="text-align:-moz-center" align="center">Click to activate siren</h3>
+		<audio id="player" src="siren.mp3" type="audio/mpeg"></audio>
+
+		<div style="text-align: -moz-center" align="center">
+
+			<img src="button.png"  align="center" id="siren" onclick="document.getElementById('player').play()" height="300px" width="300px" align="center" style="text-align:-moz-center">
+			</br>
+			</br>
+			<img src="buttonstop.gif" align="center" id="sirenstop" onclick="document.getElementById('player').pause()">
+		</div>
+		</fieldset>
+	</body>
+</html>
