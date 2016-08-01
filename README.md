@@ -1,6 +1,6 @@
 # Salus-Personal-Safety-Application
 
-Salus, a personal safety application, made by 5 female friends. 
+Salus, a personal safety application, made by 5 female friends. OPEN IN MOZILLA FIREFOX.
 
 Offers 6 different funtions:
 
